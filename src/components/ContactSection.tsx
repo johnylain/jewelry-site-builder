@@ -1,4 +1,5 @@
 import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import textureStone from "@/assets/texture-stone.jpg";
 import ScrollReveal from "./ScrollReveal";
 
 const ContactSection = () => {
