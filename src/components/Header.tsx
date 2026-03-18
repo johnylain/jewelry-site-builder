@@ -56,8 +56,8 @@ const Header = () => {
         </div>
 
         {/* Main nav */}
-        <div className="flex items-center justify-between h-16">
-          <a href="#hero" className="flex items-center mr-auto">
+        <div className="flex items-center h-16">
+          <a href="#hero" className="flex items-center shrink-0">
             <img src={logo} alt="Jeweler Kitchen" className="h-10" />
           </a>
 
