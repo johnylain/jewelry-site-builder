@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import textureMarble from "@/assets/texture-marble.jpg";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
 
