@@ -18,8 +18,11 @@ const categories = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="portfolio" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={textureStone} alt="" className="w-full h-full object-cover opacity-[0.05]" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-6">
         <ScrollReveal className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4 font-body">
             Портфолио

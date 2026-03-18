@@ -4,8 +4,11 @@ import ScrollReveal from "./ScrollReveal";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 bg-card">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="contact" className="py-24 bg-card relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={textureStone} alt="" className="w-full h-full object-cover opacity-[0.06]" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <ScrollReveal direction="left">
             <div>
