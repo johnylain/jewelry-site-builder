@@ -1,15 +1,34 @@
-import { useState } from "react";
-import { Menu, X, Phone, MapPin, MessageCircle } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Menu, X, Phone, MapPin, MessageCircle, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+
+const serviceItems = [
+  { label: "Изготовление", href: "/service/manufacturing" },
+  { label: "Ремонт", href: "/service/repair" },
+  { label: "Гравировка", href: "/service/engraving" },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const navItems = [
     { label: "Главная", href: "#hero" },
     { label: "О нас", href: "#about" },
     { label: "Портфолио", href: "#portfolio" },
-    { label: "Услуги", href: "#services" },
     { label: "Отзывы", href: "#reviews" },
     { label: "Контакты", href: "#contact" },
     { label: "Блог", href: "/blog" },
