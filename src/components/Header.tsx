@@ -150,12 +150,70 @@ const Header = () => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.2, 1, 0.3, 1] }}
           >
-            <div className="px-6 py-4 space-y-3">
+            <div className="px-6 py-4 space-y-3 text-right">
               {[
                 { label: "Главная", href: "#hero" },
                 { label: "О нас", href: "#about" },
                 { label: "Портфолио", href: "#portfolio" },
-                { label: "Услуги", href: "#services" },
+              ].map((item, i) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.05, ease: [0.2, 1, 0.3, 1] }}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+
+              {/* Mobile services expandable */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.15, ease: [0.2, 1, 0.3, 1] }}
+              >
+                <button
+                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                  className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+                >
+                  Услуги
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {isMobileServicesOpen && (
+                    <motion.div
+                      className="pr-4 space-y-2 mt-2"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2, ease: [0.2, 1, 0.3, 1] }}
+                    >
+                      <a
+                        href="#services"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        Все услуги
+                      </a>
+                      {serviceItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          to={item.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              {[
                 { label: "Отзывы", href: "#reviews" },
                 { label: "Контакты", href: "#contact" },
                 { label: "Блог", href: "/blog" },
@@ -165,9 +223,9 @@ const Header = () => {
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: i * 0.05, ease: [0.2, 1, 0.3, 1] }}
+                  transition={{ duration: 0.3, delay: (i + 4) * 0.05, ease: [0.2, 1, 0.3, 1] }}
                 >
                   {item.label}
                 </motion.a>
