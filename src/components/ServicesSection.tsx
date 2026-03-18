@@ -1,5 +1,6 @@
 import { Gem, Wrench, PenTool, Truck, Clock, Users, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import textureSilk from "@/assets/texture-silk.jpg";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
 
@@ -14,8 +15,11 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 bg-card">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="py-24 bg-card relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={textureSilk} alt="" className="w-full h-full object-cover opacity-[0.08]" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-6">
         <ScrollReveal className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4 font-body">Услуги</p>
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">

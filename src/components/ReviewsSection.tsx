@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import textureMarble from "@/assets/texture-marble.jpg";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
 
@@ -10,8 +11,11 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section id="reviews" className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="reviews" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={textureMarble} alt="" className="w-full h-full object-cover opacity-[0.06]" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-6">
         <ScrollReveal className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4 font-body">Отзывы</p>
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">

@@ -1,4 +1,5 @@
 import aboutImage from "@/assets/about-craft.jpg";
+import textureMarble from "@/assets/texture-marble.jpg";
 import ScrollReveal from "./ScrollReveal";
 
 const stats = [
@@ -9,8 +10,11 @@ const stats = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 bg-card">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="py-24 bg-card relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={textureMarble} alt="" className="w-full h-full object-cover opacity-[0.07]" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal direction="left">
             <div className="relative">
