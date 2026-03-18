@@ -35,7 +35,16 @@ const ServicesSection = () => {
             >
               <service.icon className="w-8 h-8 text-primary mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="font-display text-xl mb-3 text-foreground">{service.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-body">{service.description}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed font-body mb-4">{service.description}</p>
+              {service.link && (
+                <Link
+                  to={service.link}
+                  className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-primary hover:opacity-80 transition-opacity font-body"
+                >
+                  Подробнее
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
