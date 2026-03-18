@@ -62,7 +62,49 @@ const Header = () => {
           </a>
 
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.slice(0, 3).map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase font-body"
+              >
+                {item.label}
+              </a>
+            ))}
+
+            {/* Services dropdown */}
+            <div ref={dropdownRef} className="relative">
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase font-body"
+              >
+                Услуги
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 mt-3 min-w-[200px] bg-popover border border-border shadow-lg py-2 z-50">
+                  <a
+                    href="#services"
+                    onClick={() => setIsServicesOpen(false)}
+                    className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-accent transition-colors font-body"
+                  >
+                    Все услуги
+                  </a>
+                  {serviceItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsServicesOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-accent transition-colors font-body"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {navItems.slice(3).map((item) => (
               <a
                 key={item.href}
                 href={item.href}
