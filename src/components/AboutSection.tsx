@@ -1,4 +1,5 @@
 import aboutImage from "@/assets/about-craft.jpg";
+import textureMarble from "@/assets/texture-marble.jpg";
 import ScrollReveal from "./ScrollReveal";
 
 const stats = [
