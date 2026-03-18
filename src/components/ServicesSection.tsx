@@ -1,5 +1,6 @@
 import { Gem, Wrench, PenTool, Truck, Clock, Users, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import textureSilk from "@/assets/texture-silk.jpg";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
 
