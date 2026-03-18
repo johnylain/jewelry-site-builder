@@ -1,13 +1,12 @@
+import logo from "@/assets/logo.png";
+
 const Footer = () => {
   return (
     <footer className="py-12 bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
-            <h3 className="font-display text-xl mb-4">
-              <span className="text-gold-gradient">JEWELER</span>{" "}
-              <span className="text-foreground">KITCHEN</span>
-            </h3>
+            <img src={logo} alt="Jeweler Kitchen" className="h-10 mb-4" />
             <p className="text-sm text-muted-foreground leading-relaxed font-body">
               Изготовление ювелирных украшений по индивидуальному заказу. Ремонт любой сложности.
             </p>
