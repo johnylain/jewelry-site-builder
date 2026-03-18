@@ -1,15 +1,34 @@
-import { useState } from "react";
-import { Menu, X, Phone, MapPin, MessageCircle } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Menu, X, Phone, MapPin, MessageCircle, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+
+const serviceItems = [
+  { label: "Изготовление", href: "/service/manufacturing" },
+  { label: "Ремонт", href: "/service/repair" },
+  { label: "Гравировка", href: "/service/engraving" },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const navItems = [
     { label: "Главная", href: "#hero" },
     { label: "О нас", href: "#about" },
     { label: "Портфолио", href: "#portfolio" },
-    { label: "Услуги", href: "#services" },
     { label: "Отзывы", href: "#reviews" },
     { label: "Контакты", href: "#contact" },
     { label: "Блог", href: "/blog" },
@@ -43,7 +62,49 @@ const Header = () => {
           </a>
 
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.slice(0, 3).map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase font-body"
+              >
+                {item.label}
+              </a>
+            ))}
+
+            {/* Services dropdown */}
+            <div ref={dropdownRef} className="relative">
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase font-body"
+              >
+                Услуги
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 mt-3 min-w-[200px] bg-popover border border-border shadow-lg py-2 z-50">
+                  <a
+                    href="#services"
+                    onClick={() => setIsServicesOpen(false)}
+                    className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-accent transition-colors font-body"
+                  >
+                    Все услуги
+                  </a>
+                  {serviceItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsServicesOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-accent transition-colors font-body"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {navItems.slice(3).map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -76,7 +137,48 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border">
           <div className="px-6 py-4 space-y-3">
-            {navItems.map((item) => (
+            {navItems.slice(0, 3).map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+              >
+                {item.label}
+              </a>
+            ))}
+
+            {/* Mobile services expandable */}
+            <button
+              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+              className="flex items-center gap-1 w-full text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+            >
+              Услуги
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isMobileServicesOpen && (
+              <div className="pl-4 space-y-2">
+                <a
+                  href="#services"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Все услуги
+                </a>
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {navItems.slice(3).map((item) => (
               <a
                 key={item.href}
                 href={item.href}
