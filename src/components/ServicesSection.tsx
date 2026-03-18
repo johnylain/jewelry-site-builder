@@ -1,11 +1,12 @@
-import { Gem, Wrench, PenTool, Truck, Clock, Users } from "lucide-react";
+import { Gem, Wrench, PenTool, Truck, Clock, Users, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
 
 const services = [
-  { icon: Gem, title: "Изготовление", description: "Создание уникальных ювелирных украшений по индивидуальному заказу из золота и драгоценных камней." },
-  { icon: Wrench, title: "Ремонт", description: "Профессиональный ремонт ювелирных изделий любой сложности с гарантией качества." },
-  { icon: PenTool, title: "Гравировка", description: "Художественная и текстовая гравировка на ювелирных изделиях любой сложности." },
+  { icon: Gem, title: "Изготовление", description: "Создание уникальных ювелирных украшений по индивидуальному заказу из золота и драгоценных камней.", link: "/service/manufacturing" },
+  { icon: Wrench, title: "Ремонт", description: "Профессиональный ремонт ювелирных изделий любой сложности с гарантией качества.", link: "/service/repair" },
+  { icon: PenTool, title: "Гравировка", description: "Художественная и текстовая гравировка на ювелирных изделиях любой сложности.", link: "/service/engraving" },
   { icon: Clock, title: "Срочные заказы", description: "Услуга срочного изготовления для особых случаев и важных дат." },
   { icon: Truck, title: "Доставка по России", description: "Отправка готовых изделий по всей России с надёжной упаковкой и страховкой." },
   { icon: Users, title: "Онлайн-согласование", description: "Каждый этап заказа согласовывается онлайн, без необходимости посещать мастерскую." },
