@@ -137,7 +137,48 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border">
           <div className="px-6 py-4 space-y-3">
-            {navItems.map((item) => (
+            {navItems.slice(0, 3).map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+              >
+                {item.label}
+              </a>
+            ))}
+
+            {/* Mobile services expandable */}
+            <button
+              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+              className="flex items-center gap-1 w-full text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+            >
+              Услуги
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isMobileServicesOpen && (
+              <div className="pl-4 space-y-2">
+                <a
+                  href="#services"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Все услуги
+                </a>
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {navItems.slice(3).map((item) => (
               <a
                 key={item.href}
                 href={item.href}
