@@ -37,9 +37,8 @@ const Header = () => {
 
         {/* Main nav */}
         <div className="flex items-center justify-between h-16">
-          <a href="#hero" className="font-display text-2xl font-semibold tracking-tight">
-            <span className="text-gold-gradient">JEWELER</span>
-            <span className="text-foreground ml-2">KITCHEN</span>
+          <a href="#hero" className="flex items-center">
+            <img src={logo} alt="Jeweler Kitchen" className="h-10" />
           </a>
 
           <nav className="hidden lg:flex items-center gap-8">
