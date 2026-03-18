@@ -12,6 +12,7 @@ const Header = () => {
     { label: "Услуги", href: "#services" },
     { label: "Отзывы", href: "#reviews" },
     { label: "Контакты", href: "#contact" },
+    { label: "Блог", href: "/blog" },
   ];
 
   return (
