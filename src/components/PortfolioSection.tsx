@@ -4,6 +4,7 @@ import ringsImg from "@/assets/portfolio-rings.jpg";
 import braceletImg from "@/assets/portfolio-bracelet.jpg";
 import pendantImg from "@/assets/portfolio-pendant.jpg";
 import weddingImg from "@/assets/portfolio-wedding.jpg";
+import textureStone from "@/assets/texture-stone.jpg";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
 
