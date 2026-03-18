@@ -73,33 +73,39 @@ const Header = () => {
             ))}
 
             {/* Services dropdown */}
-            <div ref={dropdownRef} className="relative">
-              <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
+            <div
+              className="relative"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <a
+                href="#services"
                 className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase font-body"
               >
                 Услуги
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
-              </button>
+              </a>
               {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-3 min-w-[200px] bg-popover border border-border shadow-lg py-2 z-50">
-                  <a
-                    href="#services"
-                    onClick={() => setIsServicesOpen(false)}
-                    className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-accent transition-colors font-body"
-                  >
-                    Все услуги
-                  </a>
-                  {serviceItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      to={item.href}
+                <div className="absolute top-full left-0 pt-3 z-50">
+                  <div className="min-w-[200px] bg-popover border border-border shadow-lg py-2">
+                    <a
+                      href="#services"
                       onClick={() => setIsServicesOpen(false)}
-                      className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-accent transition-colors font-body"
+                      className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary-foreground hover:bg-primary transition-colors font-body"
                     >
-                      {item.label}
-                    </Link>
-                  ))}
+                      Все услуги
+                    </a>
+                    {serviceItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        to={item.href}
+                        onClick={() => setIsServicesOpen(false)}
+                        className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary-foreground hover:bg-primary transition-colors font-body"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
