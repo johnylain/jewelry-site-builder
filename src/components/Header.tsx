@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, Phone, MapPin, MessageCircle, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
 
 const serviceItems = [
@@ -140,71 +141,52 @@ const Header = () => {
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden bg-background border-t border-border">
-          <div className="px-6 py-4 space-y-3">
-            {navItems.slice(0, 3).map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
-              >
-                {item.label}
-              </a>
-            ))}
-
-            {/* Mobile services expandable */}
-            <button
-              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-              className="flex items-center gap-1 w-full text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
-            >
-              Услуги
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
-            </button>
-            {isMobileServicesOpen && (
-              <div className="pl-4 space-y-2">
-                <a
-                  href="#services"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="lg:hidden bg-background border-t border-border overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.2, 1, 0.3, 1] }}
+          >
+            <div className="px-6 py-4 space-y-3">
+              {[
+                { label: "Главная", href: "#hero" },
+                { label: "О нас", href: "#about" },
+                { label: "Портфолио", href: "#portfolio" },
+                { label: "Услуги", href: "#services" },
+                { label: "Отзывы", href: "#reviews" },
+                { label: "Контакты", href: "#contact" },
+                { label: "Блог", href: "/blog" },
+              ].map((item, i) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.05, ease: [0.2, 1, 0.3, 1] }}
                 >
-                  Все услуги
-                </a>
-                {serviceItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {navItems.slice(3).map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+                  {item.label}
+                </motion.a>
+              ))}
+              <motion.a
+                href="https://t.me/Jewelerkitchen_store"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-4 px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium tracking-wide uppercase text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.35, ease: [0.2, 1, 0.3, 1] }}
               >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href="https://t.me/Jewelerkitchen_store"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block mt-4 px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium tracking-wide uppercase text-center"
-            >
-              Сделать заказ
-            </a>
-          </div>
-        </div>
-      )}
+                Сделать заказ
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
