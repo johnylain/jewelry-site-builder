@@ -61,7 +61,7 @@ const Header = () => {
             <img src={logo} alt="Jeweler Kitchen" className="h-10" />
           </a>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center justify-center gap-8 flex-1">
             {navItems.slice(0, 3).map((item) => (
               <a
                 key={item.href}
