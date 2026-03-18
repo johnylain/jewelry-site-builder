@@ -36,7 +36,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:pl-0">
         {/* Top bar */}
         <div className="hidden md:flex items-center justify-between py-2 border-b border-border text-xs text-muted-foreground">
           <div className="flex items-center gap-6">
