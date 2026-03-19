@@ -66,8 +66,10 @@ const ContactSection = () => {
               <div className="w-20 h-20 rounded-full border border-primary/30 flex items-center justify-center mb-8">
                 <MessageCircle className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-display text-2xl text-foreground mb-4">
-                Станьте частью<br />
+              <h3 className="font-display text-2xl text-foreground mb-4">Станьте частью
+
+Jeweler Kitchen
+<br />
                 <span className="text-gold-gradient">Jeweler Kitchen</span>
               </h3>
               <p className="text-muted-foreground text-sm mb-8 max-w-sm font-body">
@@ -85,8 +87,6 @@ const ContactSection = () => {
           </ScrollReveal>
         </div>
       </div>
-    </section>
-  );
-};
+    </section>);};
 
 export default ContactSection;
