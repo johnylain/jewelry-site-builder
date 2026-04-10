@@ -125,7 +125,7 @@ const Header = () => {
             href="https://t.me/Jewelerkitchen_store"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium tracking-wide uppercase transition-all hover:opacity-90"
+            className="btn-gold-shimmer hidden md:inline-flex px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium tracking-wide uppercase transition-all hover:opacity-90"
           >
             Сделать заказ
           </a>

@@ -73,7 +73,7 @@ const ContactSection = () => {
                 Напишите нам в Telegram или VK для бесплатной консультации и расчёта стоимости вашего изделия.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="https://t.me/Jewelerkitchen_store" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[#8B7531] text-white text-sm font-medium tracking-wide uppercase transition-all hover:opacity-90">
+                <a href="https://t.me/Jewelerkitchen_store" target="_blank" rel="noopener noreferrer" className="btn-gold-shimmer px-8 py-3 bg-[#8B7531] text-white text-sm font-medium tracking-wide uppercase transition-all hover:opacity-90">
                   ПОЛУЧИТЬ РАСЧЕТ
                 </a>
                 <a href="https://vk.com/im?sel=-36634991" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-[#d4c9a8] text-[#1a1a1a] text-sm font-medium tracking-wide uppercase transition-all hover:border-[#8B7531] hover:text-[#8B7531]">
