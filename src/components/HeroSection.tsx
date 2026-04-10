@@ -63,7 +63,7 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               className="btn-gold-shimmer inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground text-sm font-medium tracking-wide uppercase transition-all hover:opacity-90"
             >
-              Каталог 2025
+              КАТАЛОГ 2026
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
