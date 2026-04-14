@@ -10,9 +10,9 @@ import bracelet3 from "@/assets/28e1272c-6e40-4eb8-b0ca-8308ac01b51c.jpg";
 import pendantMain from "@/assets/26374ab2-facc-4c82-b8ec-78dcd523705a.jpg";
 import pendant2 from "@/assets/9db4abee-ae54-4ca0-92ea-9679eb934e66.jpg";
 import pendant3 from "@/assets/f9b0acce-13df-46d5-a82b-4ad2adad5596.jpg";
-import weddingMain from "@/assets/portfolio-wedding.jpg";
-import wedding2 from "@/assets/wedding-2.jpg";
-import wedding3 from "@/assets/wedding-3.jpg";
+import weddingMain from "@/assets/93239bd9-d4a7-4c35-9b53-6c3bb7588870.jpg";
+import wedding2 from "@/assets/a697ba52-7676-4fbd-8d2c-d8b3b5146b0d.jpg";
+import wedding3 from "@/assets/7edf9c77-241d-4bb7-9bce-16ed7e6ffcdb.png";
 
 export interface CategoryItem {
   title: string;
